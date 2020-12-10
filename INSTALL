@@ -1,6 +1,25 @@
 Pict installation instructions
 ------------------------------
 
+NOTE: This guide was written 20+ years ago. If you chose to follow it, do
+it knowing that not everything might work out of the box. "gmake" seems to
+not longer exist in the Linux distribution I use (Archlinux in 2020). Use
+"make" instead.
+
+The tools required to compile this project are:
+- A C compiler. GCC or Clang do the job. The default compiler is GCC.
+- The OCaml compiler version 4.02 or higher (tested using version 4.11)
+
+To compile the project run:
+   make install
+
+To compile the examples run:
+   make examples
+
+Now, back to the past and their instructions.
+
+------------------------------
+
 TO INSTALL PICT...
 
 *) Untar the Pict sources using a command like "tar xvf pict-N.NN.tar"

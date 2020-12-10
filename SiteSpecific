@@ -22,6 +22,8 @@ INSTALLLIB = $(PWD)/bin/lib
 
 # The name of the Gnu C compiler.
 GCC = gcc
+# You can also use other C compiler such as Clang
+# GCC = clang
 
 # Set these variables to the location of the X11 include and lib files,
 # if the auto configuration doesn't work.  (On most systems, there should
