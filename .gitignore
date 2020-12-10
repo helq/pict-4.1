@@ -1,0 +1,8 @@
+*.px
+*.o
+*.tmp
+*.cmo
+*.cmx
+*.cmi
+bin/
+*~
