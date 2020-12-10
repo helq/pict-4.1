@@ -115,7 +115,7 @@ let rec ppT = function
     Format.print_string n; if !exactT then ppTag tag; ppK k;
     Format.print_string "="; ppT t; Format.print_string ")"
 | CON(_,l,t) -> 
-    Misc.formatList "\(" ")=" " " ppKindedArg l; 
+    Misc.formatList "\\(" ")=" " " ppKindedArg l; 
     Format.print_space(); ppT t
 | TAPP(_,t,l) ->
     openParen(); ppT t; Format.print_space();
@@ -155,7 +155,7 @@ let printCon k con = ppCon (k,con)
 
 let printT t =
   let k = kindOf t in
-  if !printKinds & k <> Kind.TYPE then
+  if !printKinds && k <> Kind.TYPE then
     (Format.print_string " : "; Kind.print k);
   Format.open_hvbox 2; ppT t; Format.close_box()
 

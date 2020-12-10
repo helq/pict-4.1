@@ -21,12 +21,12 @@ let leqPolarity p1 p2 = match (p1,p2) with
 
 let rec leq k1 k2 = match (k1,k2) with
   (TYPE, TYPE) -> true
-| (ARROW(l1,k1), ARROW(l2,k2)) -> leq k1 k2 & leqArgs l2 l1
+| (ARROW(l1,k1), ARROW(l2,k2)) -> leq k1 k2 && leqArgs l2 l1
 | (_,_) -> false
 
 and leqArgs l1 l2 = match (l1,l2) with
   ([], []) -> true
-| ((p1,k1)::l1, (p2,k2)::l2) -> leqPolarity p1 p2 & leq k1 k2 & leqArgs l1 l2
+| ((p1,k1)::l1, (p2,k2)::l2) -> leqPolarity p1 p2 && leq k1 k2 && leqArgs l1 l2
 | (_,_) -> false
 
 let domOf = function

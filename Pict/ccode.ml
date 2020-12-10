@@ -82,7 +82,7 @@ let printDecls os l =
   let rec printString os s x =
     if x = String.length s then output_string os "\\000" else
     let c = String.get s x in
-    if Char.code c < 32 or Char.code c > 126 then
+    if Char.code c < 32 || Char.code c > 126 then
       (output_char os '\\';
        output_byte os ((Char.code '0') + ((Char.code c) lsr 6));
        output_byte os ((Char.code '0') + (((Char.code c) lsr 3) land 7));

@@ -5,6 +5,8 @@ bool
 bytes
 chan
 char
+cg1
+cg2
 client
 clock
 env

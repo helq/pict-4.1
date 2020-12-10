@@ -6,20 +6,20 @@ let counter = ref 0
 
 let setModuleName n =
   let sz = String.length n in
-  let e = String.create (sz * 3 + 6) in
+  let e = Bytes.create (sz * 3 + 6) in
   String.blit "pict_" 0 e 0 5;
   let rec encode x p =
-    if x = sz then (String.set e p '_'; p+1) else
+    if x = sz then (Bytes.set e p '_'; p+1) else
     let c = String.get n x in
     if
       (c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z') ||
       (c >= '0' && c <= '9')
     then
-      (String.set e p c; encode (x+1) (p+1))
+      (Bytes.set e p c; encode (x+1) (p+1))
     else
-      (String.set e p '_'; encode (x+1) (p+1))
+      (Bytes.set e p '_'; encode (x+1) (p+1))
 in
-  base := String.sub e 0 (encode 0 5)
+  base := String.sub (Bytes.to_string e) 0 (encode 0 5)
 
 let fresh () = incr counter; (!base,!counter)
 let local () = incr counter; ("v",!counter)

@@ -24,7 +24,7 @@ $(INSTALLDIR)/% : % Makefile ../SiteSpecific
 	@echo export X11LIB               >>$@
 	@echo GCC=$(GCC)                  >>$@
 	@echo export GCC                  >>$@
-	@echo exec $(INSTALLLIB)/$< $$'*' >>$@
+	@echo exec $(INSTALLLIB)/$< '$$*' >>$@
 	@chmod 755 $@
 
 install:: all $(INSTALLDIR)/pict
